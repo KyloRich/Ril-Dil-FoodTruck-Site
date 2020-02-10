@@ -1,0 +1,12 @@
+
+public class Introduction {
+
+	public static void main(String[] args) {
+
+		System.out.println("My name is Dan.");
+		System.out.println("My favorite color is blue.");
+		System.out.println("If I won the lottery, I would retire.");
+
+	}
+
+}

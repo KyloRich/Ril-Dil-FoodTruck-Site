@@ -1,0 +1,141 @@
+body {
+  font-size: 14px;
+}
+.App {
+  text-align: center;
+}
+
+/* ----------------------- GLOBAL -----------------------*/
+
+.App-logo {
+  height: 30vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding-top: 30px;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.page-header {
+  padding: 1em;
+  background: red;
+  position: relative;
+}
+
+/* ----------------------- FOOTER -----------------------*/
+
+.paymentOptions {
+  width: 2.5em;
+  margin: 7px 7px;
+}
+
+/* ----------------------- HOME PAGE -----------------------*/
+.googleMap {
+  position: relative;
+  margin: auto;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.googleMap ul {
+  list-style: none;
+}
+
+.location-dates {
+  width: 3em;
+}
+
+.carousel-item {
+  height: 30%;
+  object-fit: cover;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  color: red;
+}
+
+.tab-pane {
+  padding-top: 2em;
+}
+
+.quick-link {
+  margin: 5em 0;
+}
+
+.quick-link-content {
+  padding: 4em 2em;
+}
+
+.quick-link-about {
+  background-image: url("/images/hotlink_about.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  overflow: hidden;
+}
+
+.quick-link-menu {
+  background-image: url("/images/hotlink_menu.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  overflow: hidden;
+}
+
+/* ----------------------- NAVIGATION -----------------------*/
+.navbar-brand {
+  width: 5em;
+  margin-top: 2%;
+}
+
+.testDiv {
+  min-height: 700px;
+}
+
+/* ----------------------- ABOUT PAGE -----------------------*/
+.blockquote {
+  font-size: 14px;
+}
+
+.rildil-reviews {
+  background: #f3f3f3;
+  padding: 20px;
+  max-height: 300px;
+}
+
+/* ----------------------- CONTACT PAGE -----------------------*/
+
+/* .form-group {
+  margin-top: 20px;
+} */
+
+
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
