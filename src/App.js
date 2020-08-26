@@ -1,13 +1,13 @@
 import React from "react";
-//import Contact from "./Component/Contact";
+import Contact from "./Component/Contact";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Component/Home";
 import About from "./Component/About";
-// import Menu from "./Component/Menu";
+import Menu from "./Component/Menu";
 import NoMatch from "./Component/NoMatch";
 import Navbar2 from "./Component/Navbar2";
 import Footer2 from "./Component/Footer2";
-//import ValidatedLoginForm from "./Component/ValidatedLoginForm";
+import ValidatedLoginForm from "./Component/ValidatedLoginForm";
 import TabComponent from "./Component/TabComponent";
 
 class App extends React.Component {
@@ -31,5 +31,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;

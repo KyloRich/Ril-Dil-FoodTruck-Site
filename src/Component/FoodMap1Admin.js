@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import truck from "./Images/truck.png";
+
 class FoodMapAdmin extends React.Component {
   constructor() {
     super();
@@ -18,14 +19,12 @@ class FoodMapAdmin extends React.Component {
       dates: []
     };
   }
-
   componentDidMount() {
     this.getDates();
   }
-
   //get JSON data
   getDates = async () => {
-    axios.get(`http://localhost:8080/locations/`).then(async res => {
+    axios.get(`${URL.base}/api/locations/`).then(async res => { 
       let subset = await res.data.splice(0, 4);
       this.setState({
         dates: subset,
@@ -36,7 +35,6 @@ class FoodMapAdmin extends React.Component {
       });
     });
   };
-
   dateClick = i => {
     this.setState({
       lat: this.state.dates[i].lat,
@@ -46,28 +44,23 @@ class FoodMapAdmin extends React.Component {
       date: this.state.dates[i].date
     });
   };
-
   updateHandler = () => {
     alert("Update Successful");
   };
-
   updateLocation = event => {
     event.preventDefault();
-
     let d = this.state.dates[this.state.id];
-
     d.date = document.getElementById("date").value;
     d.address = document.getElementById("address").value;
     d.lat = document.getElementById("latitude").value;
     d.lon = document.getElementById("longitude").value;
-
     this.setState({
       date: d.date,
       address: d.address,
       lat: d.lat,
       lon: d.lon
     });
-    axios.put(`http://localhost:8080/locations/` + this.state.id, {
+    axios.put(`${URL.base}/api/locations/` + this.state.id, {
       date: d.date,
       address: d.address,
       lat: d.lat,
@@ -77,7 +70,6 @@ class FoodMapAdmin extends React.Component {
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
-
   render() {
     let dates = (
       <div className="row text-white-50">
@@ -163,7 +155,6 @@ class FoodMapAdmin extends React.Component {
                     name="address"
                     value={this.state.address}
                   ></textarea>
-
                   <label htmlFor="latitude">Latitude</label>
                   <input
                     onChange={this.handleChange}
