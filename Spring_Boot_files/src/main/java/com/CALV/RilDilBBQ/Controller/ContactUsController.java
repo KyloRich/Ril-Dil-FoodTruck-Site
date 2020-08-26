@@ -1,5 +1,4 @@
 package com.CALV.RilDilBBQ.Controller;
-
 import com.CALV.RilDilBBQ.ContactUs;
 import com.CALV.RilDilBBQ.ContactUsRepository;
 import com.CALV.RilDilBBQ.Exception.ResourceNotFoundException;
@@ -14,21 +13,18 @@ import java.util.List;
 public class ContactUsController {
 	@Autowired
 	ContactUsRepository contactUsRepository;
-
 	@CrossOrigin(origins = "http://localhost:3000")
 	// Get All contactUs
 	@GetMapping("/contactus")
 	public List<ContactUs> getAllContactUs() {
 		return contactUsRepository.findAll();
 	}
-
 	@CrossOrigin(origins = "http://localhost:3000")
 	// Create a new contactUs
 	@PostMapping("/contactus")
 	public ContactUs createContactUs(@Valid @RequestBody ContactUs contactUs) {
 		return contactUsRepository.save(contactUs);
 	}
-
 	@CrossOrigin(origins = "http://localhost:3000")
 	// Get a Single contactUs
 	@GetMapping("/contactus/{id}")
@@ -36,7 +32,6 @@ public class ContactUsController {
 		return contactUsRepository.findById(contactUsId)
 				.orElseThrow(() -> new ResourceNotFoundException("ContactUs", "id", contactUsId));
 	}
-
 	@CrossOrigin(origins = "http://localhost:3000")
 	// Update a contactUs
 	@PutMapping("/contactus/{id}")
@@ -56,7 +51,6 @@ public class ContactUsController {
 		ContactUs updatedContactUs = contactUsRepository.save(contactUs);
 		return updatedContactUs;
 	}
-
 	@CrossOrigin(origins = "http://localhost:3000")
 	// Delete a ContactUs
 	@DeleteMapping("/contactus/{id}")

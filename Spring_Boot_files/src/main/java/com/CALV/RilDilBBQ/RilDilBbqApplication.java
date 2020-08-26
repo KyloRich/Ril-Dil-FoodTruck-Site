@@ -11,9 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 })
 @EnableJpaAuditing
 public class RilDilBbqApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(RilDilBbqApplication.class, args);
 	}
-
 }

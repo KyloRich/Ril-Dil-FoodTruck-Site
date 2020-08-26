@@ -1,5 +1,4 @@
 package com.CALV.RilDilBBQ;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import org.springframework.data.annotation.CreatedDate;
@@ -9,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
+
 //This annotation marks a plain old java object that can be persisted to the database. It is also the domain model. All domain models must be annotated with this
 @SuppressWarnings("serial")
 @Entity
@@ -27,34 +27,24 @@ public class ContactUs implements Serializable {
     // auto, identity, sequence, and table.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
     @NotBlank
     private String first_name;
-    
     @NotBlank
     private String last_name;
-    
     @NotBlank
     private String email;
-    
     @NotBlank
     private String street_address;
-    
     @NotBlank
     private String street_address2;
-    
     @NotBlank
     private String city;
-    
     @NotBlank
     private String state;
-    
     @NotNull
     private Long zip;
-    
     @NotNull
     private Long number_of_guests;
-    
     @NotBlank
     @Lob
     private String description_of_request;
@@ -152,12 +142,5 @@ public class ContactUs implements Serializable {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
-    
     //Getters and Setters (Kyle Addition **just in case you disagree)
-    
 }
-
-
-
-
-

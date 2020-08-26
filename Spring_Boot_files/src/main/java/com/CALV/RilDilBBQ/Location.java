@@ -1,6 +1,4 @@
 package com.CALV.RilDilBBQ;
-
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +11,6 @@ public class Location implements Serializable
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	String date;
 	String Address;
 	Double Lon;
@@ -24,17 +21,12 @@ public class Location implements Serializable
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 	public String getDate() {
 		return date;
 	}
-	
-	
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
 	public String getAddress() {
 		return Address;
 	}
