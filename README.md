@@ -1,3 +1,15 @@
+Ril Dil BBQ Food Truck Website:
+
+Skills Used:
+
+- Agile Software Framework employed to collaborate with my team of programmers, developing responsive website to meet client’s business needs
+- Front-end build with React components and Bootstrap for responsive design
+- React form-validation employed for customer’s ability to book food truck services
+- Form registering to back-end with React, Node.js, Bootstrap, Axios and Rest-API
+- Current map and truck location provided via Google API
+- Java back-end, JPA, JDBC, Spring-Boot, Hibernate
+- MySQL Database hosted on AWS to store form data, menu items, and GPS coordinates for food- truck location
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
