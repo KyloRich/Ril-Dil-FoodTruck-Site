@@ -1,6 +1,6 @@
-<b>Ril Dil BBQ Food Truck Website:</b>
+<h1><b>Ril Dil BBQ Food Truck Website:</b><h1>
 
-Skills Used:
+<h3>Skills Used:<h3/>
 
 - Agile Software Framework employed to collaborate with my team of programmers, developing responsive website to meet client’s business needs
 - Front-end build with React components and Bootstrap for responsive design
