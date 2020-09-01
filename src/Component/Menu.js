@@ -40,7 +40,7 @@ export default class MenuItems extends Component {
     data.append("file", this.state.data[index].file);
     data.append("name", this.state.data[index].file.name);
 
-    fetch("http://localhost:8080/uploadFile", {
+    fetch(`${URL.base}/uploadFile`, {
       method: "POST",
       body: data
     })
@@ -91,7 +91,7 @@ export default class MenuItems extends Component {
       image = d[index].image;
     }
 
-    axios.put(`http://localhost:8080/api/menu/` + id, {
+    axios.put(`${URL.base}/menu/` + id, {
       menu_item: menu_item,
       summary: summary,
       price: price,
@@ -122,7 +122,7 @@ export default class MenuItems extends Component {
   };
 
   deleteItem = (id, index) => {
-    axios.delete("http://localhost:8080/api/menu/" + id);
+    axios.delete(`${URL.base}/menu/` + id);
     let temp = this.state.data;
     temp.splice(index, 1);
     this.setState({ data: temp });
@@ -130,7 +130,7 @@ export default class MenuItems extends Component {
 
   newItem = () => {
     axios
-      .post(`http://localhost:8080/api/menu/`, {
+      .post(`${URL.base}/menu/`, {
         menu_item: "new item",
         summary: "new summary",
         price: "0.0",

@@ -20,7 +20,7 @@ class FoodMap extends React.Component {
   }
   //get JSON data
   getDates = () => {
-    axios.get(`http://localhost:8080/locations/`).then(res => {
+    axios.get(`${URL.base}/locations/`).then(res => {
       let subset = res.data.splice(0, 4);
       this.setState({
         dates: subset,

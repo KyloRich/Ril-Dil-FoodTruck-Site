@@ -21,7 +21,7 @@ class ValidatedLoginForm extends React.Component {
       return;
     }
 
-    fetch("http://localhost:8080/api/login/")
+    fetch(`${URL.base}/api/login/`)
       .then(res => res.json())
       .then(data => {
         var i;

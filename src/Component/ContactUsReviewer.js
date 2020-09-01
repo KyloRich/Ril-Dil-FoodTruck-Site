@@ -28,7 +28,7 @@ class ContactUsReviewer extends React.Component {
   };
 
   loadData = () => {
-    fetch("http://localhost:8080/api/contactus")
+    fetch(`${URL.base}/api/contactus/`)
       .then(res => res.json())
       .then(data => {
         this.setState({ contactUs: data });
@@ -36,7 +36,7 @@ class ContactUsReviewer extends React.Component {
   };
 
   handleClick = (id, index) => {
-    Axios.delete("http://localhost:8080/api/contactus/" + id);
+    Axios.delete(`${URL.base}/api/contactus/` + id);
     let temp = this.state.contactUs;
     temp.splice(index, 1);
     this.setState({ contactUs: temp });

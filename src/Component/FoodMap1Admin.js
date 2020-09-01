@@ -24,7 +24,7 @@ class FoodMapAdmin extends React.Component {
   }
   //get JSON data
   getDates = async () => {
-    axios.get(`${URL.base}/api/locations/`).then(async res => { 
+    axios.get(`${URL.base}/locations/`).then(async res => { 
       let subset = await res.data.splice(0, 4);
       this.setState({
         dates: subset,
@@ -60,7 +60,7 @@ class FoodMapAdmin extends React.Component {
       lat: d.lat,
       lon: d.lon
     });
-    axios.put(`${URL.base}/api/locations/` + this.state.id, {
+    axios.put(`${URL.base}/locations/` + this.state.id, {
       date: d.date,
       address: d.address,
       lat: d.lat,

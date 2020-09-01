@@ -34,7 +34,7 @@ export default class Contact extends React.Component {
     console.log(event.target.elements[7].value);
     console.log(event.target.elements[8].value);
     console.log(event.target.elements[9].value);
-    axios.post(`http://localhost:8080/api/contactus`, {
+    axios.post(`${URL.base}/api/contactus`, { 
       first_name: event.target.elements[0].value,
       last_name: event.target.elements[1].value,
       email: event.target.elements[2].value,
