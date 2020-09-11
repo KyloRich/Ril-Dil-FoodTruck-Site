@@ -1,114 +1,108 @@
 import React from "react";
-import axios from "axios";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import truck from "./Images/truck.png";
 class FoodMap extends React.Component {
   constructor() {
     super();
-    this.getDates = this.getDates.bind(this);
+    this.yourFunctionName = this.yourFunctionName.bind(this);
     this.dateClick = this.dateClick.bind(this);
     this.state = {
-      lat: 33.45171,
-      long: -111.926,
-      add: "Connecting   Jan 03, 2020  ________________________________",
-      date: "2020-01-03",
+      lat: 0,
+      long: 0,
+      add: "",
+      date: "",
       dates: []
     };
   }
   componentDidMount() {
-    this.getDates();
+    this.yourFunctionName();
   }
   //get JSON data
-  getDates = () => {
-    axios.get(`${URL.base}/locations/`).then(res => {
-      let subset = res.data.splice(0, 4);
-      this.setState({
-        dates: subset,
-        lat: subset[0].lat,
-        long: subset[0].lon,
-        add: subset[0].address
-      });
+  yourFunctionName = async () => {
+    const api_call = await fetch(`http://localhost:8080/locations/`);
+    const data = await api_call.json();
+    this.setState({
+      lat: data[data.length - 1].lat,
+      long: data[data.length - 1].lon,
+      add: data[data.length - 1].address,
+      date: data[data.length - 1].date,
+      dates: data
     });
   };
-  dateClick = i => {
+  dateClick = (i, subset) => {
     this.setState({
-      lat: i.lat,
-      long: i.lon,
-      add: i.address
+      lat: subset[i].lat,
+      long: subset[i].lon,
+      add: subset[i].address,
+      date: subset[i].date
     });
   };
   render() {
+    let size = this.state.dates.length;
+    let subset = this.state.dates.slice(size - 4, size);
     let dates = (
-      <div className="row border-bottom border-white">
-        {this.state.dates.map((item, i) => (
-          <div
-            key={i}
-            className="nav-item nav-link bg-dark text-danger active"
-            id="nav-home-tab"
-            data-toggle="tab"
-            href="#nav-home"
-            role="tab"
-            aria-controls="nav-home"
-            aria-selected="true"
-            onClick={() => this.dateClick(item)}
-          >
-            {item.date}
-          </div>
-        ))}
+      <div>
+        <ul
+          style={{
+            listStyleType: "none",
+            height: "200px",
+            overflow: "hidden",
+            margin: "0px 0",
+            padding: "0px 0"
+          }}
+        >
+          {subset.map((item, i) => (
+            <li key={i}>
+              <button
+                class="btn btn-danger"
+                // class="btn btn-link  text-white-50"
+                style={{ margin: "5px 5px", padding: "3px 3px" }}
+                onClick={() => this.dateClick(i, subset)}
+              >
+                {item.date}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     );
+
     return (
-      <div>
-        <div className="container">
-          <h2 className="my-4 text-white-50">Find out where we'll be next!</h2>
-          <nav>
-            <div className="nav nav-tabs" id="nav-tab" role="tablist">
-              <a
-                className="nav-item nav-link"
-                id="nav-profile-tab"
-                href="#nav-profile"
-                role="tab"
-                aria-controls="nav-profile"
-                aria-selected="true"
-              >
-                {dates}
-              </a>
-            </div>
-          </nav>
-          <div className="tab-content"></div>
-          <div className="row find-us" id="nav-tabContent">
-            <div className="map-content col-lg-6 col-mdtab-content">
-              <div
-                className="tab-pane"
-                id="nav-profile"
-                role="tabpanel"
-                aria-labelledby="nav-profile-tab"
-              >
-                <h2 className="text-white-50">{this.state.add}</h2>
-              </div>
-            </div>
-            <div className="col-lg-6 col-md googleMap">
-              <Map
-                google={this.props.google}
-                initialCenter={{ lat: this.state.lat, lng: this.state.long }}
-                center={{ lat: this.state.lat, lng: this.state.long }}
-                zoom={15}
-              >
-                <Marker
-                  position={{ lat: this.state.lat, lng: this.state.long }}
-                  icon={truck}
-                ></Marker>
-              </Map>
-            </div>
-          </div>
-        </div>
+      <div
+        style={{
+          borderWidth: " 20px",
+          position: "relative",
+          overflow: "hidden",
+          height: "200px"
+        }}
+      >
         <table>
-          <tbody>
-            <tr>
-              <td className="bg-dark text-white text-center mapContent"></td>
-              <td className="bg-dark text-white location-dates"></td>
-            </tr>
-          </tbody>
+          <td
+            className="bg-dark text-white text-center border border-bottom border-white"
+            style={{ width: "40%" }}
+          >
+            <h2>{this.state.add}</h2>
+          </td>
+          <td
+            className="bg-dark text-white border border-white"
+            style={{ width: "10%", zIndex: "1" }}
+          >
+            {dates}
+          </td>
+          <td>
+            <Map
+              style={{ width: "50%" }}
+              google={this.props.google}
+              initialCenter={{ lat: this.state.lat, lng: this.state.long }}
+              center={{ lat: this.state.lat, lng: this.state.long }}
+              zoom={15}
+            >
+              <Marker
+                position={{ lat: this.state.lat, lng: this.state.long }}
+                icon={truck}
+              ></Marker>
+            </Map>
+          </td>
         </table>
       </div>
     );
