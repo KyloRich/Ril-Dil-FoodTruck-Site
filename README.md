@@ -2,7 +2,6 @@
 
 <h3>Skills Used:<h3/>
 
-- Agile Software Framework employed to collaborate with my team of programmers, developing responsive website to meet client’s business needs
 - Front-end build with React components and Bootstrap for responsive design
 - React form-validation employed for customer’s ability to book food truck services
 - Form registering to back-end with React, Node.js, Bootstrap, Axios and Rest-API
